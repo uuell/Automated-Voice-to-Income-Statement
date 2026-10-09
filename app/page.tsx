@@ -1,69 +1,157 @@
-import Image from "next/image";
+
+import Link from "next/link";
+import {
+  ArrowRight,
+  CarFront,
+  ClipboardList,
+  FileBarChart,
+  Mic,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
+
+const features = [
+  {
+    title: "Voice Recap",
+    description:
+      "Record or upload a manager's daily recap, transcribe it, and extract financial transactions using AI.",
+    href: "/recap",
+    icon: Mic,
+    action: "Start Voice Recap",
+  },
+  {
+    title: "Transaction Review",
+    description:
+      "Review pending transactions, correct missing amounts, resolve issues, and confirm verified records.",
+    href: "/transactions",
+    icon: ClipboardList,
+    action: "Open Review Queue",
+  },
+  {
+    title: "Vehicle Inventory",
+    description:
+      "Register vehicles, track acquisition costs, and manage inventory throughout the sales process.",
+    href: "/vehicles",
+    icon: CarFront,
+    action: "Manage Inventory",
+  },
+  {
+    title: "Income Statement",
+    description:
+      "Generate daily or date-range financial statements with revenue, cost of sales, expenses, and Excel export.",
+    href: "/report",
+    icon: FileBarChart,
+    action: "View Financial Reports",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="min-h-full bg-background">
+      <div className="mx-auto max-w-7xl space-y-10 px-4 py-10 sm:px-6 lg:py-14">
+        <section className="space-y-5">
+          <div className="inline-flex items-center gap-2 rounded-full border bg-muted/50 px-3 py-1.5 text-xs font-medium text-muted-foreground">
+            <Sparkles className="size-4" />
+            AI-Powered Financial Operations
+          </div>
+
+          <div className="max-w-3xl space-y-4">
+            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+              DryvePH Financial Workspace
+            </h1>
+
+            <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+              Turn daily voice recaps into structured financial
+              transactions, manage vehicle inventory, and generate
+              income statements from verified records.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/recap"
+              className="inline-flex h-10 items-center gap-2 rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <Mic className="size-4" />
+              Start New Recap
+              <ArrowRight className="size-4" />
+            </Link>
+
+            <Link
+              href="/transactions"
+              className="inline-flex h-10 items-center gap-2 rounded-md border bg-background px-4 text-sm font-medium transition-colors hover:bg-accent"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+              <ClipboardList className="size-4" />
+              Review Transactions
+            </Link>
+          </div>
+        </section>
+
+        <section className="space-y-5">
+          <div>
+            <h2 className="text-xl font-semibold tracking-tight">
+              Workspace
+            </h2>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Access the tools used in your daily financial workflow.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {features.map((feature) => {
+              const Icon = feature.icon;
+
+              return (
+                <Link
+                  key={feature.href}
+                  href={feature.href}
+                  className="group flex flex-col justify-between gap-6 rounded-xl border bg-card p-6 transition-colors hover:border-primary/50 hover:bg-accent/30"
+                >
+                  <div className="space-y-4">
+                    <div className="flex size-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                      <Icon className="size-5" />
+                    </div>
+
+                    <div className="space-y-2">
+                      <h3 className="text-lg font-semibold">
+                        {feature.title}
+                      </h3>
+
+                      <p className="text-sm leading-relaxed text-muted-foreground">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2 text-sm font-medium text-primary">
+                    {feature.action}
+                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="flex flex-col gap-4 rounded-xl border bg-muted/30 p-6 sm:flex-row sm:items-center">
+          <div className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <ShieldCheck className="size-5" />
+          </div>
+
+          <div className="space-y-1">
+            <h2 className="font-semibold">
+              Human-Verified Financial Reporting
+            </h2>
+
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              AI-extracted transactions are reviewed before
+              confirmation. Missing amounts and unresolved issues
+              remain pending instead of being silently included in
+              financial statements.
+            </p>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

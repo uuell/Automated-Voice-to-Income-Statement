@@ -1,0 +1,110 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+enum RecapStatus {
+  DRAFT
+  PROCESSING
+  NEEDS_REVIEW
+  COMPLETED
+  FAILED
+}
+
+enum TransactionType {
+  REVENUE
+  COST_OF_SALES
+  OPERATING_EXPENSE
+  INVENTORY_PURCHASE
+  CUSTOMER_DEPOSIT
+}
+
+enum TransactionStatus {
+  NEEDS_REVIEW
+  CONFIRMED
+  REJECTED
+}
+
+enum VehicleStatus {
+  IN_STOCK
+  RESERVED
+  SOLD
+}
+
+model Recap {
+  id         String      @id @default(cuid())
+  transcript String
+  recapDate  DateTime
+  status     RecapStatus @default(DRAFT)
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+
+  transactions Transaction[]
+}
+
+model Vehicle {
+  id              String        @id @default(cuid())
+  plateNumber     String?       @unique
+  make            String?
+  model           String
+  variant         String?
+  year            Int?
+  color           String?
+  acquisitionCost Decimal?
+  acquisitionDate DateTime?
+  status          VehicleStatus @default(IN_STOCK)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  transactions Transaction[]
+}
+
+model Transaction {
+  id          String            @id @default(cuid())
+  recapId     String
+  vehicleId   String?
+  description String
+  type        TransactionType
+  category    String
+  amount      Decimal?
+  status      TransactionStatus @default(NEEDS_REVIEW)
+
+  transactionDate DateTime
+  notes           String?
+  reviewFlags     String?
+  sourceText      String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  recap   Recap    @relation(fields: [recapId], references: [id])
+  vehicle Vehicle? @relation(fields: [vehicleId], references: [id])
+
+  reviews TransactionReview[]
+
+  @@index([transactionDate])
+  @@index([status])
+  @@index([type])
+}
+
+model TransactionReview {
+  id            String   @id @default(cuid())
+  transactionId String
+  fieldName     String
+  oldValue      String?
+  newValue      String?
+  reason        String?
+  createdAt     DateTime @default(now())
+
+  transaction Transaction @relation(fields: [transactionId], references: [id])
+}
