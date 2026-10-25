@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI Voice-to-Income Statement",
+  title: "DryvePH | Voice-to-Income Statement",
   description:
     "AI-powered voice recap processing, transaction review, vehicle inventory, and financial reporting.",
 };

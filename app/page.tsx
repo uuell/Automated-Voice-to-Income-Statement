@@ -57,7 +57,7 @@ export default function Home() {
 
           <div className="max-w-3xl space-y-4">
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-              Financial Workspace
+              DryvePH Financial Workspace
             </h1>
 
             <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">

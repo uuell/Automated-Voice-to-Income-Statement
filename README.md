@@ -1,6 +1,6 @@
-# Voice-to-Income Statement
+# DryvePH Voice-to-Income Statement
 
-**An AI-assisted financial reporting prototype**
+An AI-assisted financial reporting prototype developed for the **DryvePH IT Support Specialist technical assessment**.
 
 The application converts spoken daily business recaps into structured financial transactions, allows managers to review and correct AI-generated information, and produces income statements based on confirmed records.
 
@@ -192,3 +192,5 @@ npm run build
 ## Project Scope
 
 This application was developed as a technical assessment prototype to demonstrate AI-assisted workflow automation, full-stack development, database-backed business processes, validation, and practical financial reporting.
+
+It is not an official DryvePH accounting system.
