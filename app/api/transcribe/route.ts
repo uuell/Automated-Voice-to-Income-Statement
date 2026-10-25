@@ -90,7 +90,7 @@ export async function POST(request: NextRequest) {
         model: GROQ_TRANSCRIPTION_MODEL,
         response_format: "json",
         prompt:
-          "This is a daily financial recap for a vehicle dealership in the Philippines. The speaker may use English, Filipino, or Taglish. Preserve monetary amounts, vehicle names, corrections, and financial terms accurately.",
+          "This is a daily financial recap from DryvePH, a vehicle dealership in the Philippines. The speaker may use English, Filipino, or Taglish. Preserve monetary amounts, vehicle names, corrections, and financial terms accurately.",
       });
 
     return NextResponse.json({

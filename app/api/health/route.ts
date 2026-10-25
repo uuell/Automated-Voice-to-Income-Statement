@@ -9,7 +9,7 @@ export async function GET() {
 
     return NextResponse.json({
       success: true,
-      message: "Voice Income API is running",
+      message: "Dryve Voice Income API is running",
       database: "connected",
       recapCount,
     });
