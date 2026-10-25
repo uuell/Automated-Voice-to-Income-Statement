@@ -181,7 +181,7 @@ export default function ReportsPage() {
     return (
         <main className="mx-auto max-w-5xl space-y-8 px-4 py-10">
         <div>
-            <Badge variant="secondary">DryvePH • Financial Reports</Badge>
+            <Badge variant="secondary">Financial Reports</Badge>
             <h1 className="mt-3 text-3xl font-bold">
             Income Statement
             </h1>
