@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
     const statement = report.incomeStatement;
 
     const workbook = new ExcelJS.Workbook();
-    workbook.creator = "DryvePH Voice Income";
+    workbook.creator = "Voice Income";
     workbook.created = new Date();
 
     const sheet = workbook.addWorksheet("Income Statement");
@@ -50,7 +50,7 @@ export async function GET(request: NextRequest) {
     ];
 
     sheet.mergeCells("A1:B1");
-    sheet.getCell("A1").value = "DRYVEPH";
+    sheet.getCell("A1").value = "Statements";
     sheet.getCell("A1").font = {
       bold: true,
       size: 18,
@@ -212,7 +212,7 @@ export async function GET(request: NextRequest) {
     const buffer = await workbook.xlsx.writeBuffer();
 
     const filename =
-      `dryve-income-statement-${startDate}-to-${endDate}.xlsx`;
+      `income-statement-${startDate}-to-${endDate}.xlsx`;
 
     return new NextResponse(
       new Uint8Array(buffer),

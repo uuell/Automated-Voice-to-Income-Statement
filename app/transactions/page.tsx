@@ -774,7 +774,7 @@ export default function TransactionsPage() {
                 {transaction.notes && (
                 <div className="mt-4">
                     <p className="text-xs font-medium text-muted-foreground">
-                    Manager Notes
+                    Notes
                     </p>
                     <p className="mt-1 whitespace-pre-wrap text-sm">
                     {transaction.notes}

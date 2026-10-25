@@ -430,7 +430,7 @@ export default function RecapPage() {
                 if (blob.size > 0) {
                     const file = new File(
                     [blob],
-                    `dryve-recap-${Date.now()}.${extension}`,
+                    `recap-${Date.now()}.${extension}`,
                     { type: mimeType }
                     );
 
@@ -484,7 +484,7 @@ export default function RecapPage() {
     return (
         <main className="mx-auto max-w-6xl space-y-8 px-4 py-10">
         <div>
-            <Badge variant="secondary">DryvePH • Task A</Badge>
+            <Badge variant="secondary">AI Automated</Badge>
             <h1 className="mt-3 text-3xl font-bold">
             Voice-to-Income Statement
             </h1>
