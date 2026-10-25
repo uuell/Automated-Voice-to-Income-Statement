@@ -160,7 +160,7 @@ export default function ReportsPage() {
             const link = document.createElement("a");
             link.href = url;
             link.download =
-            `dryve-income-statement-${report.period.startDate}-to-${report.period.endDate}.xlsx`;
+            `income-statement-${report.period.startDate}-to-${report.period.endDate}.xlsx`;
 
             document.body.appendChild(link);
             link.click();

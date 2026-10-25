@@ -14,11 +14,11 @@ const prisma = new PrismaClient({
   adapter: new PrismaPg({ connectionString }),
 });
 
-const DEMO_RECAP_ID = "dryve-demo-october-2026";
+const DEMO_RECAP_ID = "demo-october-2026";
 const DEMO_DATE = new Date("2026-10-09T10:00:00+08:00");
 
 async function main() {
-  console.log("Preparing DryvePH demo data...");
+  console.log("Preparing demo data...");
 
   await prisma.$transaction(async (tx) => {
     // Preserve the existing Toyota Vios when its plate matches.

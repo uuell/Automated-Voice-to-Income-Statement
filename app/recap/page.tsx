@@ -430,7 +430,7 @@ export default function RecapPage() {
                 if (blob.size > 0) {
                     const file = new File(
                     [blob],
-                    `dryve-recap-${Date.now()}.${extension}`,
+                    `recap-${Date.now()}.${extension}`,
                     { type: mimeType }
                     );
 

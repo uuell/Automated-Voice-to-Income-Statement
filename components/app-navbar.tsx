@@ -52,7 +52,7 @@ export function AppNavbar() {
 
           <div>
             <p className="text-sm font-bold leading-tight">
-              DryvePH
+              AI powered
             </p>
             <p className="text-xs text-muted-foreground">
               Voice-to-Income Statement
